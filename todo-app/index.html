@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>To-Do List</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="sidebar">
+    <h2>My Tasks</h2>
+    <ul id="task-nav">
+      <li onclick="filterTasks('all')">All</li>
+      <li onclick="filterTasks('completed')">Completed</li>
+      <li onclick="filterTasks('active')">Active</li>
+    </ul>
+    <div class="dark-mode-toggle">
+      <label class="switch">
+        <input type="checkbox" id="darkModeToggle" onclick="toggleDarkMode()">
+        <span class="slider"></span>
+      </label>
+      <span>Dark Mode</span>
+    </div>
+  </div>
+
+  <div class="container">
+    <h1>To-Do List</h1>
+    <input type="text" id="taskInput" placeholder="Enter a task" />
+    <input type="date" id="dueDate" />
+    <button onclick="addTask()">Add Task</button>
+
+    <input type="text" id="searchBar" placeholder="Search tasks..." oninput="searchTasks()" />
+
+    <ul id="taskList" ondragover="allowDrop(event)" ondrop="drop(event)">
+      <!-- Tasks will go here -->
+    </ul>
+
+    <div class="controls">
+      <button onclick="clearCompleted()">Clear Completed</button>
+      <button onclick="clearAll()">Clear All</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
